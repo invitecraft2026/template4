@@ -28,16 +28,17 @@ export function VenueSection() {
         </Reveal>
 
         <Reveal delay={0.1}>
+          {/* Photo frame - ivory card with gold border */}
           <div
             className="
               mt-10
               overflow-hidden
               rounded-xl
               border
-              border-white/25
-              bg-transparent
+              border-[#b8934a]/70
+              bg-[#fbf5e6]/80
               p-2
-              shadow-[0_10px_30px_rgba(0,0,0,0.20)]
+              shadow-[0_10px_30px_rgba(77,31,41,0.18)]
             "
           >
             <img
@@ -53,39 +54,43 @@ export function VenueSection() {
 
         <Reveal delay={0.2}>
           <div className="mt-6 text-center">
-            <h3 className="wedding-light text-lg uppercase tracking-[0.2em]">
-  {wedding.venue.name}
-</h3>
+            {/* Venue name - deep burgundy */}
+            <h3 className="text-lg font-semibold uppercase tracking-[0.2em] text-[#4d1f29] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)]">
+              {wedding.venue.name}
+            </h3>
 
-            <p className="wedding-muted mt-2 text-sm leading-relaxed">
-  {wedding.venue.address}
-</p>
+            {/* Address - dark olive */}
+            <p className="mt-2 text-sm font-medium leading-relaxed text-[#3f4a2c] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)]">
+              {wedding.venue.address}
+            </p>
 
+            {/* Button - solid burgundy, ivory text, gold border */}
             <a
-  href={mapsDirectionsUrl(wedding.venue.mapsQuery)}
-  target="_blank"
-  rel="noreferrer"
-  className="
-    mt-6
-    inline-block
-    rounded-md
-    border
-    border-[#e8c996]
-    bg-[#571d2b]/75
-    px-6
-    py-3
-    text-[0.62rem]
-    uppercase
-    tracking-[0.24em]
-    text-[#fff8ef]
-    shadow-[0_6px_20px_rgba(0,0,0,0.30)]
-    transition-all
-    duration-300
-    hover:bg-[#571d2b]/90
-  "
->
-  Get Directions
-</a>
+              href={mapsDirectionsUrl(wedding.venue.mapsQuery)}
+              target="_blank"
+              rel="noreferrer"
+              className="
+                mt-6
+                inline-block
+                rounded-md
+                border
+                border-[#b8934a]
+                bg-[#4d1f29]
+                px-6
+                py-3
+                text-[0.62rem]
+                font-semibold
+                uppercase
+                tracking-[0.24em]
+                text-[#fbf5e6]
+                shadow-[0_6px_20px_rgba(77,31,41,0.30)]
+                transition-all
+                duration-300
+                hover:bg-[#3a1620]
+              "
+            >
+              Get Directions
+            </a>
           </div>
         </Reveal>
       </div>

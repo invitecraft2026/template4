@@ -19,19 +19,23 @@ export function Footer() {
       <Reveal>
         <Divider />
 
-        <p className="mt-8 text-[0.62rem] tracking-[0.26em] uppercase text-champagne drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
+        {/* Sign-off - antique gold */}
+        <p className="mt-8 text-[0.62rem] font-semibold uppercase tracking-[0.26em] text-[#7a5a14] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)]">
           {wedding.footer.signOff}
         </p>
 
-        <p className="font-script mt-3 text-4xl text-[#fff7ed] drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] sm:text-5xl">
+        {/* Initials - deep burgundy */}
+        <p className="font-script mt-3 text-4xl text-[#4d1f29] drop-shadow-[0_0_10px_rgba(251,245,230,0.9)] sm:text-5xl">
           {wedding.initials}
         </p>
 
-        <p className="mt-4 text-sm text-[#fff3e6]/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.45)]">
+        {/* Thanks - dark olive */}
+        <p className="mt-4 text-sm font-medium text-[#3f4a2c] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)]">
           {wedding.footer.thanks}
         </p>
 
-        <p className="mt-8 text-[0.55rem] tracking-[0.2em] uppercase text-[#fff3e6]/75 drop-shadow-[0_1px_3px_rgba(0,0,0,0.45)]">
+        {/* Date - muted olive */}
+        <p className="mt-8 text-[0.55rem] font-semibold uppercase tracking-[0.2em] text-[#556040] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)]">
           {wedding.date}
         </p>
       </Reveal>

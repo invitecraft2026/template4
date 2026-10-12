@@ -54,6 +54,12 @@ function getTimeLeft(targetDate: string) {
   };
 }
 
+const numberClass =
+  "text-3xl font-normal tracking-wide text-[#4d1f29] drop-shadow-[0_0_10px_rgba(251,245,230,0.9)] sm:text-4xl";
+
+const labelClass =
+  "mt-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#3f4a2c] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)]";
+
 export function SaveTheDate() {
   const [timeLeft, setTimeLeft] = useState(() =>
     getTimeLeft(wedding.dateISO)
@@ -93,50 +99,31 @@ export function SaveTheDate() {
           <div className="mt-10">
             <div className="mt-8 grid grid-cols-4 gap-4">
               <div>
-               <p className="wedding-title text-3xl font-light tracking-wide sm:text-4xl">
-  {timeLeft.days}
-</p>
-
-                <p className="wedding-muted mt-2 text-xs uppercase tracking-[0.25em]">
-  Days
-</p>
+                <p className={numberClass}>{timeLeft.days}</p>
+                <p className={labelClass}>Days</p>
               </div>
 
               <div>
-                <p className="text-3xl font-light tracking-wide text-champagne drop-shadow-[0_1px_4px_rgba(0,0,0,0.45)] sm:text-4xl">
-                  {timeLeft.hours}
-                </p>
-
-                <p className="mt-2 text-xs uppercase tracking-[0.25em] text-[#fff4ea]/80 drop-shadow-[0_1px_3px_rgba(0,0,0,0.45)]">
-                  Hours
-                </p>
+                <p className={numberClass}>{timeLeft.hours}</p>
+                <p className={labelClass}>Hours</p>
               </div>
 
               <div>
-                <p className="text-3xl font-light tracking-wide text-champagne drop-shadow-[0_1px_4px_rgba(0,0,0,0.45)] sm:text-4xl">
-                  {timeLeft.minutes}
-                </p>
-
-                <p className="mt-2 text-xs uppercase tracking-[0.25em] text-[#fff4ea]/80 drop-shadow-[0_1px_3px_rgba(0,0,0,0.45)]">
-                  Minutes
-                </p>
+                <p className={numberClass}>{timeLeft.minutes}</p>
+                <p className={labelClass}>Minutes</p>
               </div>
 
               <div>
-                <p className="text-3xl font-light tracking-wide text-champagne drop-shadow-[0_1px_4px_rgba(0,0,0,0.45)] sm:text-4xl">
-                  {timeLeft.seconds}
-                </p>
-
-                <p className="mt-2 text-xs uppercase tracking-[0.25em] text-[#fff4ea]/80 drop-shadow-[0_1px_3px_rgba(0,0,0,0.45)]">
-                  Seconds
-                </p>
+                <p className={numberClass}>{timeLeft.seconds}</p>
+                <p className={labelClass}>Seconds</p>
               </div>
             </div>
           </div>
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="mt-8 text-center text-sm italic text-[#fff4ea]/85 drop-shadow-[0_1px_4px_rgba(0,0,0,0.45)]">
+          {/* Time line - antique gold */}
+          <p className="mt-8 text-center text-sm font-medium italic text-[#7a5a14] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)]">
             {wedding.time}
           </p>
         </Reveal>

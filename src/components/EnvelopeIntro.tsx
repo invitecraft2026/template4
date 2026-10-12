@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-import envelopeClosed from "@/assets/brown_envelope.png";
-import envelopeOpening from "@/assets/brown_envelope_opening.mp4";
+import envelopeClosed from "@/assets/Ivory and Gold Botanical Envelope.png";
+import envelopeOpening from "@/assets/ivoryandglod_envlope.mp4";
 
 export type IntroState = "closed" | "opening" | "complete";
 

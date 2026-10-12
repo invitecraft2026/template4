@@ -121,7 +121,7 @@ function Index() {
 
           <DressCode />
 
-          <GuestInfo />
+          {/* <GuestInfo /> */}
 
           <Footer />
         </div>

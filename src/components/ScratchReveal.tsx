@@ -47,42 +47,33 @@ function ScratchBox({
         height
       );
 
-      gradient.addColorStop(0, "#EFE3CE");
-      gradient.addColorStop(0.45, "#D9C09C");
-      gradient.addColorStop(1, "#E7D8BE");
+      /*
+       * Richer antique-gold coating so the scratch
+       * boxes stand out clearly on the cream background.
+       */
+      gradient.addColorStop(0, "#D9BE86");
+      gradient.addColorStop(0.45, "#B8934A");
+      gradient.addColorStop(1, "#D4B97C");
 
       ctx.globalCompositeOperation = "source-over";
 
       ctx.fillStyle = gradient;
 
-      ctx.fillRect(
-        0,
-        0,
-        width,
-        height
-      );
+      ctx.fillRect(0, 0, width, height);
 
       /*
        * Subtle diagonal texture
        */
-      ctx.strokeStyle =
-        "rgba(255,255,255,0.22)";
+      ctx.strokeStyle = "rgba(255,248,230,0.35)";
 
       ctx.lineWidth = 1;
 
-      for (
-        let i = -height;
-        i < width;
-        i += 10
-      ) {
+      for (let i = -height; i < width; i += 10) {
         ctx.beginPath();
 
         ctx.moveTo(i, 0);
 
-        ctx.lineTo(
-          i + height,
-          height
-        );
+        ctx.lineTo(i + height, height);
 
         ctx.stroke();
       }
@@ -101,32 +92,23 @@ function ScratchBox({
       2
     );
 
-    const rect =
-      wrap.getBoundingClientRect();
+    const rect = wrap.getBoundingClientRect();
 
-    canvas.width = Math.round(
-      rect.width * dpr
-    );
+    canvas.width = Math.round(rect.width * dpr);
 
-    canvas.height = Math.round(
-      rect.height * dpr
-    );
+    canvas.height = Math.round(rect.height * dpr);
 
-    canvas.style.width =
-      `${rect.width}px`;
+    canvas.style.width = `${rect.width}px`;
 
-    canvas.style.height =
-      `${rect.height}px`;
+    canvas.style.height = `${rect.height}px`;
 
     paintCoating(canvas);
   }, [paintCoating]);
 
   const scratchedRatio = () => {
-    const canvas =
-      canvasRef.current;
+    const canvas = canvasRef.current;
 
-    const ctx =
-      canvas?.getContext("2d");
+    const ctx = canvas?.getContext("2d");
 
     if (!canvas || !ctx) {
       return 0;
@@ -144,11 +126,7 @@ function ScratchBox({
     let clear = 0;
     let total = 0;
 
-    for (
-      let i = 3;
-      i < data.length;
-      i += 4 * step
-    ) {
+    for (let i = 3; i < data.length; i += 4 * step) {
       total += 1;
 
       if (data[i] === 0) {
@@ -156,59 +134,42 @@ function ScratchBox({
       }
     }
 
-    return total === 0
-      ? 0
-      : clear / total;
+    return total === 0 ? 0 : clear / total;
   };
 
   const erase = (
     e: React.PointerEvent<HTMLCanvasElement>
   ) => {
-    const canvas =
-      canvasRef.current;
+    const canvas = canvasRef.current;
 
-    const ctx =
-      canvas?.getContext("2d");
+    const ctx = canvas?.getContext("2d");
 
     if (!canvas || !ctx) {
       return;
     }
 
-    const rect =
-      canvas.getBoundingClientRect();
+    const rect = canvas.getBoundingClientRect();
 
-    const dpr =
-      canvas.width / rect.width;
+    const dpr = canvas.width / rect.width;
 
-    const x =
-      (e.clientX - rect.left) *
-      dpr;
+    const x = (e.clientX - rect.left) * dpr;
 
-    const y =
-      (e.clientY - rect.top) *
-      dpr;
+    const y = (e.clientY - rect.top) * dpr;
 
     const radius =
-      (window.innerWidth < 420
-        ? 18
-        : 22) * dpr;
+      (window.innerWidth < 420 ? 18 : 22) * dpr;
 
-    ctx.globalCompositeOperation =
-      "destination-out";
+    ctx.globalCompositeOperation = "destination-out";
 
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
 
-    ctx.lineWidth =
-      radius * 2;
+    ctx.lineWidth = radius * 2;
 
     if (last.current) {
       ctx.beginPath();
 
-      ctx.moveTo(
-        last.current.x,
-        last.current.y
-      );
+      ctx.moveTo(last.current.x, last.current.y);
 
       ctx.lineTo(x, y);
 
@@ -217,13 +178,7 @@ function ScratchBox({
 
     ctx.beginPath();
 
-    ctx.arc(
-      x,
-      y,
-      radius,
-      0,
-      Math.PI * 2
-    );
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
 
     ctx.fill();
 
@@ -240,9 +195,7 @@ function ScratchBox({
 
     last.current = null;
 
-    e.currentTarget.setPointerCapture(
-      e.pointerId
-    );
+    e.currentTarget.setPointerCapture(e.pointerId);
 
     erase(e);
   };
@@ -262,10 +215,7 @@ function ScratchBox({
 
     last.current = null;
 
-    if (
-      !revealed &&
-      scratchedRatio() >= THRESHOLD
-    ) {
+    if (!revealed && scratchedRatio() >= THRESHOLD) {
       setRevealed(true);
     }
   };
@@ -281,8 +231,8 @@ function ScratchBox({
           overflow-hidden
           rounded-2xl
           border
-          border-white/40
-          shadow-[0_8px_25px_rgba(54,16,28,0.20)]
+          border-[#b8934a]/70
+          shadow-[0_8px_25px_rgba(77,31,41,0.18)]
           select-none
         "
       >
@@ -294,17 +244,18 @@ function ScratchBox({
             flex
             items-center
             justify-center
-            bg-[#fffaf2]
+            bg-[#fffaf0]
             px-2
             text-center
           "
         >
+          {/* Deep burgundy so the date is easy to read */}
           <p
             className="
               font-script
               text-2xl
               font-medium
-              text-gold-gradient
+              text-[#4d1f29]
               sm:text-3xl
             "
           >
@@ -321,8 +272,7 @@ function ScratchBox({
           onPointerLeave={onUp}
           onPointerCancel={onUp}
           animate={{
-            opacity:
-              revealed ? 0 : 1,
+            opacity: revealed ? 0 : 1,
           }}
           transition={{
             duration: 0.7,
@@ -335,23 +285,20 @@ function ScratchBox({
             rounded-2xl
           "
           style={{
-            pointerEvents:
-              revealed
-                ? "none"
-                : "auto",
+            pointerEvents: revealed ? "none" : "auto",
           }}
         />
       </div>
 
-      {/* Label */}
+      {/* Label - dark olive */}
       <p
         className="
           text-[0.6rem]
-          font-medium
+          font-semibold
           uppercase
           tracking-[0.25em]
-          text-[#f8e9dc]/85
-          drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]
+          text-[#3f4a2c]
+          drop-shadow-[0_0_8px_rgba(251,245,230,0.9)]
         "
       >
         {label}
@@ -370,14 +317,10 @@ export function ScratchReveal() {
         py-20
       "
       style={{
-        backgroundColor:
-          "transparent",
-        backgroundImage:
-          "none",
-        backdropFilter:
-          "none",
-        WebkitBackdropFilter:
-          "none",
+        backgroundColor: "transparent",
+        backgroundImage: "none",
+        backdropFilter: "none",
+        WebkitBackdropFilter: "none",
         boxShadow: "none",
       }}
     >
@@ -390,25 +333,23 @@ export function ScratchReveal() {
         "
       >
         <Reveal>
-          <SectionHeading
-            title="The Date"
-            script
-          />
+          <SectionHeading title="The Date" script />
         </Reveal>
 
         <Reveal delay={0.08}>
+          {/* Antique gold hint text */}
           <p
             className="
               mt-3
               text-[0.65rem]
+              font-medium
               uppercase
               tracking-[0.25em]
-              text-champagne
-              drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]
+              text-[#7a5a14]
+              drop-shadow-[0_0_8px_rgba(251,245,230,0.9)]
             "
           >
-            ✦ Scratch to reveal
-            the date ✦
+            ✦ Scratch to reveal the date ✦
           </p>
         </Reveal>
 
@@ -423,16 +364,12 @@ export function ScratchReveal() {
           >
             <ScratchBox
               label="Day"
-              value={
-                wedding.dayNumber
-              }
+              value={wedding.dayNumber}
             />
 
             <ScratchBox
               label="Month"
-              value={
-                wedding.monthName
-              }
+              value={wedding.monthName}
             />
 
             <ScratchBox

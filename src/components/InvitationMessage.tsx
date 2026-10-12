@@ -18,35 +18,41 @@ export function InvitationMessage() {
     >
       <div className="relative mx-auto max-w-md text-center">
         <Reveal>
-         <p className="wedding-light text-[0.6rem] leading-relaxed tracking-[0.2em] uppercase">
-  You are invited to the
-  <br />
-  {wedding.welcomeTitle} of
-</p>
+          {/* Intro line - dark olive */}
+          <p className="text-xs font-bold uppercase leading-relaxed tracking-[0.18em] text-[#3f4a2c] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)] sm:text-sm">
+            You are invited to the
+            <br />
+            {wedding.welcomeTitle} of
+          </p>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h3 className="font-script mt-6 text-4xl wedding-title sm:text-5xl">
-  {wedding.bride.firstName}
-</h3>
+          {/* Bride name - deep burgundy */}
+          <h3 className="font-script mt-6 text-5xl text-[#4d1f29] drop-shadow-[0_0_10px_rgba(251,245,230,0.9)] sm:text-6xl">
+            {wedding.bride.firstName}
+          </h3>
 
-          <p className="wedding-muted mt-2 text-[0.58rem] leading-relaxed tracking-[0.15em] uppercase">
-  {wedding.bride.parents}
-</p>
+          {/* Parents */}
+          <p className="mt-2 text-xs font-semibold uppercase leading-relaxed tracking-[0.1em] text-[#4a5535] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)] sm:text-sm">
+            {wedding.bride.parents}
+          </p>
         </Reveal>
 
         <Reveal delay={0.15}>
-          <span className="font-script mt-4 block text-xl text-champagne drop-shadow-[0_1px_5px_rgba(0,0,0,0.5)]">
+          {/* "with" - antique gold */}
+          <span className="font-script mt-4 block text-2xl text-[#8a6a1c] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)]">
             with
           </span>
         </Reveal>
 
         <Reveal delay={0.2}>
-          <h3 className="font-script mt-3 text-4xl wedding-title sm:text-5xl">
-  {wedding.groom.firstName}
-</h3>
+          {/* Groom name - deep burgundy */}
+          <h3 className="font-script mt-3 text-5xl text-[#4d1f29] drop-shadow-[0_0_10px_rgba(251,245,230,0.9)] sm:text-6xl">
+            {wedding.groom.firstName}
+          </h3>
 
-          <p className="mt-2 text-[0.58rem] leading-relaxed tracking-[0.15em] uppercase text-[#fff3e6]/85 drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
+          {/* Parents */}
+          <p className="mt-2 text-xs font-semibold uppercase leading-relaxed tracking-[0.1em] text-[#4a5535] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)] sm:text-sm">
             {wedding.groom.parents}
           </p>
         </Reveal>
@@ -54,13 +60,15 @@ export function InvitationMessage() {
         <Reveal delay={0.28}>
           <Divider className="mt-8" />
 
-          <p className="wedding-light mt-6 text-sm leading-relaxed">
-  {wedding.invitationMessage}
-</p>
+          {/* Invitation message - dark olive */}
+          <p className="mt-6 text-base font-medium leading-relaxed text-[#3f4a2c] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)] sm:text-lg">
+            {wedding.invitationMessage}
+          </p>
 
-         <p className="wedding-muted mt-6 text-xs italic leading-relaxed">
-  {wedding.quote}
-</p>
+          {/* Quote - antique gold, italic */}
+          <p className="mt-6 text-sm font-semibold italic leading-relaxed text-[#7a5a14] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)] sm:text-base">
+            {wedding.quote}
+          </p>
         </Reveal>
       </div>
     </section>

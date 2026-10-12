@@ -25,39 +25,47 @@ export function DressCode() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="mt-8 text-sm leading-relaxed text-[#fff3e6]/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
+          {/* Description - dark olive */}
+          <p className="mt-8 text-base font-medium leading-relaxed text-[#3f4a2c] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)] sm:text-lg">
             {wedding.dressCode.description}
           </p>
         </Reveal>
 
         <Reveal delay={0.2}>
-          <ul className="mt-8 flex flex-wrap items-start justify-center gap-x-4 gap-y-5">
+          {/* 4 per row on mobile, last row centered */}
+          <ul className="mt-8 flex flex-wrap justify-center gap-y-6">
             {wedding.dressCode.colors.map((c) => (
-              <li key={c.name} className="w-14">
+              <li key={c.name} className="basis-1/4 px-1">
+                {/* Color swatch - gold ring so light colors stay visible */}
                 <span
                   className="
                     mx-auto
                     block
-                    h-11
-                    w-11
+                    h-14
+                    w-14
                     rounded-full
-                    border
-                    border-white/40
-                    shadow-[0_3px_12px_rgba(0,0,0,0.18)]
+                    border-2
+                    border-[#b8934a]/80
+                    shadow-[0_3px_12px_rgba(77,31,41,0.22)]
                   "
                   style={{ backgroundColor: c.hex }}
                   aria-hidden
                 />
 
+                {/* Color name - dark olive */}
                 <span
                   className="
                     mt-2
                     block
-                    text-[0.55rem]
+                    break-words
+                    text-[0.7rem]
+                    font-bold
                     uppercase
-                    tracking-[0.12em]
-                    text-[#fff3e6]/85
-                    drop-shadow-[0_1px_3px_rgba(0,0,0,0.45)]
+                    leading-tight
+                    tracking-[0.05em]
+                    text-[#3f4a2c]
+                    drop-shadow-[0_0_8px_rgba(251,245,230,0.9)]
+                    sm:text-xs
                   "
                 >
                   {c.name}

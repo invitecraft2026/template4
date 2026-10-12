@@ -1,9 +1,9 @@
 import { wedding, type WeddingEvent } from "@/config/wedding";
 
-import archIllustration from "@/assets/timeline-arch.png";
-import mehndiIllustration from "@/assets/timeline-mehndi.png";
-import ringsIllustration from "@/assets/timeline-rings.png";
-import dinnerIllustration from "@/assets/timeline-dinner.png";
+import archIllustration from "@/assets/Welcome Drinks.png";
+import mehndiIllustration from "@/assets/Wedding Ceremony.png";
+import ringsIllustration from "@/assets/Reception.png";
+import dinnerIllustration from "@/assets/Farewell Brunch.png";
 
 import { SectionHeading } from "./Ornament";
 import { Reveal } from "./Reveal";
@@ -37,8 +37,8 @@ export function EventTimeline() {
         </Reveal>
 
         <div className="relative mt-14">
-          {/* Center vertical line */}
-          <span className="absolute top-0 bottom-0 left-1/2 w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-champagne to-transparent" />
+          {/* Center vertical line - antique gold */}
+          <span className="absolute top-0 bottom-0 left-1/2 w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#b8934a] to-transparent" />
 
           <div className="flex flex-col gap-14">
             {wedding.events.map((event, i) => {
@@ -46,7 +46,7 @@ export function EventTimeline() {
 
               return (
                 <Reveal key={event.id} delay={i * 0.08}>
-                  <div className="relative grid grid-cols-2 items-center gap-6">
+                  <div className="relative grid grid-cols-2 items-center gap-4">
                     {/* Center diamond marker */}
                     <span
                       className="
@@ -59,16 +59,16 @@ export function EventTimeline() {
                         -translate-y-1/2
                         rotate-45
                         border
-                        border-champagne
-                        bg-[#6b2b38]
-                        shadow-[0_0_8px_rgba(217,192,156,0.45)]
+                        border-[#b8934a]
+                        bg-[#4d1f29]
+                        shadow-[0_0_8px_rgba(184,147,74,0.5)]
                       "
                     />
 
                     {imageLeft ? (
                       <>
                         {/* Illustration */}
-                        <div className="flex justify-end pr-4">
+                        <div className="flex justify-end pr-3">
                           <img
                             src={illustrationByIcon[event.icon]}
                             alt=""
@@ -76,7 +76,7 @@ export function EventTimeline() {
                               h-24
                               w-24
                               object-contain
-                              drop-shadow-[0_4px_10px_rgba(0,0,0,0.25)]
+                              drop-shadow-[0_4px_10px_rgba(77,31,41,0.25)]
                               sm:h-28
                               sm:w-28
                             "
@@ -84,64 +84,39 @@ export function EventTimeline() {
                         </div>
 
                         {/* Event info */}
-                        <div className="pl-4 text-left">
-                          <p className="font-script wedding-title text-xl sm:text-2xl">
-  {event.time}
-</p>
+                        <div className="pl-3 text-left">
+                          <p className="font-script text-2xl text-[#4d1f29] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)] sm:text-3xl">
+                            {event.time}
+                          </p>
 
-                          <h3 className="wedding-light mt-1 text-sm tracking-[0.15em] uppercase">
-  {event.title}
-</h3>
+                          <h3 className="mt-1 text-sm font-bold uppercase leading-snug tracking-[0.1em] text-[#3f4a2c] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)] sm:text-base">
+                            {event.title}
+                          </h3>
 
-                          <p className="wedding-muted mt-1 text-xs leading-relaxed">
-  {event.venue}
-</p>
+                          <p className="mt-1 text-sm font-medium leading-snug text-[#4a5535] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)]">
+                            {event.venue}
+                          </p>
                         </div>
                       </>
                     ) : (
                       <>
                         {/* Event info */}
-                        <div className="pr-4 text-right">
-                          <p
-                            className="
-                              font-script
-                              text-xl
-                              text-champagne
-                              drop-shadow-[0_1px_4px_rgba(0,0,0,0.45)]
-                              sm:text-2xl
-                            "
-                          >
+                        <div className="pr-3 text-right">
+                          <p className="font-script text-2xl text-[#4d1f29] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)] sm:text-3xl">
                             {event.time}
                           </p>
 
-                          <h3
-                            className="
-                              mt-1
-                              text-sm
-                              tracking-[0.15em]
-                              text-[#fff7ed]
-                              uppercase
-                              drop-shadow-[0_1px_4px_rgba(0,0,0,0.55)]
-                            "
-                          >
+                          <h3 className="mt-1 text-sm font-bold uppercase leading-snug tracking-[0.1em] text-[#3f4a2c] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)] sm:text-base">
                             {event.title}
                           </h3>
 
-                          <p
-                            className="
-                              mt-1
-                              text-xs
-                              leading-relaxed
-                              text-[#f8e9dc]/90
-                              drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]
-                            "
-                          >
+                          <p className="mt-1 text-sm font-medium leading-snug text-[#4a5535] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)]">
                             {event.venue}
                           </p>
                         </div>
 
                         {/* Illustration */}
-                        <div className="flex justify-start pl-4">
+                        <div className="flex justify-start pl-3">
                           <img
                             src={illustrationByIcon[event.icon]}
                             alt=""
@@ -149,7 +124,7 @@ export function EventTimeline() {
                               h-24
                               w-24
                               object-contain
-                              drop-shadow-[0_4px_10px_rgba(0,0,0,0.25)]
+                              drop-shadow-[0_4px_10px_rgba(77,31,41,0.25)]
                               sm:h-28
                               sm:w-28
                             "

@@ -19,12 +19,13 @@ export function HeroSection({ start }: { start: boolean }) {
           min-h-[100svh]
           flex-col
           items-center
-          justify-between
+          justify-center
           px-6
           py-14
           text-center
         "
       >
+        {/* Main text block - vertically centered */}
         <motion.div
           initial={{
             opacity: 0,
@@ -41,33 +42,40 @@ export function HeroSection({ start }: { start: boolean }) {
           }}
           className="mx-auto max-w-sm"
         >
-          <p className="tracking-luxe wedding-light text-[0.62rem] font-light uppercase sm:text-xs">
-  {wedding.welcomeLine}
-</p>
+          {/* Small top line - antique gold */}
+          <p className="tracking-luxe text-[0.62rem] font-medium uppercase text-[#7a5a14] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)] sm:text-xs">
+            {wedding.welcomeLine}
+          </p>
 
-          <h1 className="font-script mt-3 text-[2.75rem] leading-[1.05] wedding-title sm:text-[3.5rem]">
-  {wedding.welcomeTitle}
-</h1>
+          {/* Main title - deep burgundy */}
+          <h1 className="font-script mt-3 text-[2.75rem] leading-[1.05] text-[#4d1f29] drop-shadow-[0_0_10px_rgba(251,245,230,0.9)] sm:text-[3.5rem]">
+            {wedding.welcomeTitle}
+          </h1>
 
-          <p className="mt-2 text-xs italic tracking-wide text-cream/90 drop-shadow-[0_1px_5px_rgba(0,0,0,0.45)]">
+          {/* Join line - dark olive */}
+          <p className="mt-2 text-xs font-medium italic tracking-wide text-[#3f4a2c] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)]">
             {wedding.welcomeJoin}
           </p>
 
           <div className="mt-3 flex flex-col items-center">
-            <h2 className="font-script text-5xl leading-none wedding-light sm:text-6xl">
-  {wedding.bride.firstName}
-</h2>
+            {/* Bride - deep burgundy */}
+            <h2 className="font-script text-5xl leading-none text-[#4d1f29] drop-shadow-[0_0_10px_rgba(251,245,230,0.9)] sm:text-6xl">
+              {wedding.bride.firstName}
+            </h2>
 
-            <span className="font-script -my-1 text-xl text-champagne sm:text-2xl">
+            {/* Ampersand - antique gold */}
+            <span className="font-script -my-1 text-xl text-[#8a6a1c] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)] sm:text-2xl">
               &amp;
             </span>
 
-            <h2 className="font-script text-5xl leading-none wedding-light sm:text-6xl">
-  {wedding.groom.firstName}
-</h2>
+            {/* Groom - deep burgundy */}
+            <h2 className="font-script text-5xl leading-none text-[#4d1f29] drop-shadow-[0_0_10px_rgba(251,245,230,0.9)] sm:text-6xl">
+              {wedding.groom.firstName}
+            </h2>
           </div>
         </motion.div>
 
+        {/* Scroll hint - pinned to the bottom */}
         <motion.div
           initial={{
             opacity: 0,
@@ -79,18 +87,20 @@ export function HeroSection({ start }: { start: boolean }) {
             duration: 1,
             delay: 0.9,
           }}
-          className="mx-auto max-w-sm"
+          className="absolute inset-x-0 bottom-10 mx-auto max-w-sm"
         >
-          <p className="mt-10 wedding-light text-[0.6rem] tracking-[0.28em] uppercase">
-  Scroll to discover
-</p>
+          {/* Scroll hint - dark olive */}
+          <p className="text-[0.6rem] font-medium uppercase tracking-[0.28em] text-[#3f4a2c] drop-shadow-[0_0_8px_rgba(251,245,230,0.9)]">
+            Scroll to discover
+          </p>
 
+          {/* Arrow - antique gold */}
           <motion.svg
             width="18"
             height="18"
             viewBox="0 0 24 24"
             aria-hidden
-            className="mx-auto mt-2 text-champagne"
+            className="mx-auto mt-2 text-[#7a5a14]"
             animate={
               start
                 ? {
@@ -110,7 +120,9 @@ export function HeroSection({ start }: { start: boolean }) {
               d="M6 9l6 6 6-6"
               fill="none"
               stroke="currentColor"
-              strokeWidth="1.1"
+              strokeWidth="1.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </motion.svg>
         </motion.div>
